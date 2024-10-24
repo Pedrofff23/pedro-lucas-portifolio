@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useEffect, useState } from "react";
+import React, { Suspense, use, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { text, curve, translate } from "./anim";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -15,9 +15,22 @@ const anim = (variants) => {
     };
 };
 
+function Search() {
+    const searchParams = useSearchParams();
+
+    return searchParams.toString() === "" ? (
+        <>
+            <motion.p className="route" {...anim(text)}>
+                Pedro Lucas
+            </motion.p>
+        </>
+    ) : (
+        <></>
+    );
+}
+
 export default function Curve({ children, backgroundColor }) {
     const router = useRouter();
-    const searchParams = useSearchParams();
     const [dimensions, setDimensions] = useState({
         width: null,
         height: null,
@@ -44,15 +57,7 @@ export default function Curve({ children, backgroundColor }) {
                 className="background"
             />
             <Suspense>
-                {searchParams.toString() === "" ? (
-                    <>
-                        <motion.p className="route" {...anim(text)}>
-                            Pedro Lucas
-                        </motion.p>
-                    </>
-                ) : (
-                    <></>
-                )}
+                <Search />
             </Suspense>
             {dimensions.width != null && <SVG {...dimensions} />}
             {children}
