@@ -21,7 +21,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url('/Photos/IMG-20240628-WA0070.jpg')  no-repeat center center/cover;
+  background: url('/photos/teste.jpg')  no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,5 +41,5 @@
 
 .overlay h1 {
   color: #fff;
-  z-index: 1;
+  /* z-index: 1; */
 }

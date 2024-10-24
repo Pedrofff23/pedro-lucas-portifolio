@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Caveat } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Link } from "react-scroll";
+import Image from "next/image";
 
 const font = Caveat({
     weight: "700",
@@ -14,7 +15,7 @@ function Navbar() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(true);
-        }, 1000); 
+        }, 1000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -23,7 +24,15 @@ function Navbar() {
             {isVisible && (
                 <header className="icons fixed top-0 z-50 mx-auto w-full px-4 py-10 sm:px-20">
                     <div className="flex items-center justify-between">
-                        <div>teste</div>
+                        <div>
+                            <Image
+                                src="/logo.png"
+                                width={100}
+                                height={70}
+                                alt="Logo"
+                                className="fixed top-[8px]"
+                            />
+                        </div>
                         <div className="absolute left-1/2 -translate-x-1/2 transform">
                             <Link
                                 to="home"

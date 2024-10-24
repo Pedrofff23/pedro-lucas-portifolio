@@ -1,5 +1,6 @@
-.curve{
-    svg, .background{
+.curve {
+    svg,
+    .background {
         position: fixed;
         height: calc(100vh + 600px);
         width: 100vw;
@@ -7,11 +8,11 @@
         left: 0;
         top: 0;
     }
-    .background{
+    .background {
         background-color: black;
         transition: opacity 0s linear 0.1s;
     }
-    .route{
+    .route {
         position: absolute;
         left: 50%;
         top: 40%;

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { text, curve, translate } from "./anim";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { div } from "framer-motion/client";
 
 const anim = (variants) => {
     return {
@@ -16,7 +17,7 @@ const anim = (variants) => {
 
 export default function Curve({ children, backgroundColor }) {
     const router = useRouter();
-    const searchParams = useSearchParams()
+    const searchParams = useSearchParams();
     const [dimensions, setDimensions] = useState({
         width: null,
         height: null,
@@ -35,7 +36,7 @@ export default function Curve({ children, backgroundColor }) {
             window.removeEventListener("resize", resize);
         };
     }, []);
-    
+
     return (
         <div className="page curve" style={{ backgroundColor }}>
             <div
@@ -46,13 +47,11 @@ export default function Curve({ children, backgroundColor }) {
                 <>
                     <motion.p className="route" {...anim(text)}>
                         Pedro Lucas
-                        <Image src="/Photos/IMG-20240628-WA0070.jpg" width={500} height={50} alt="Logo" />
+      
                     </motion.p>
                 </>
             ) : (
-                <>
-                
-                </>
+                <></>
             )}
 
             {dimensions.width != null && <SVG {...dimensions} />}
@@ -63,7 +62,7 @@ export default function Curve({ children, backgroundColor }) {
 
 const SVG = ({ height, width }) => {
     const initialPath = `
-        M0 300 
+        M0 300
         Q${width / 2} 0 ${width} 300
         L${width} ${height + 300}
         Q${width / 2} ${height + 600} 0 ${height + 300}

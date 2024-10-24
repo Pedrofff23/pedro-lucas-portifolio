@@ -1,7 +1,7 @@
-@import '../components/Layout/Curve/style.scss';
+@import "../components/Layout/Curve/style.scss";
 
-.main{
-    .header{
+.main {
+    .header {
         display: flex;
         gap: 15px;
         padding: 40px;
@@ -9,24 +9,23 @@
         position: fixed;
         left: 0px;
         top: 0px;
-        a{
+        a {
             text-decoration: none;
             color: black;
-            &:hover{
+            &:hover {
                 text-decoration: underline;
             }
         }
     }
-    .page{
+    .page {
         padding: 40px;
         min-height: calc(100vh - 80px);
     }
-    h1{
+    h1 {
         margin-top: 50px;
     }
-    .body{
+    .body {
         display: flex;
         gap: 40px;
     }
-    
 }
