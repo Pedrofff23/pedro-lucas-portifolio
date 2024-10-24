@@ -2,7 +2,7 @@
 import React, { use, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { text, curve, translate } from "./anim";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { div } from "framer-motion/client";
 
@@ -17,7 +17,6 @@ const anim = (variants) => {
 
 export default function Curve({ children, backgroundColor }) {
     const router = useRouter();
-    const searchParams = useSearchParams();
     const [dimensions, setDimensions] = useState({
         width: null,
         height: null,
