@@ -36,7 +36,7 @@ export default function ImageGallery() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
 
-    const openModal = (imageSrc) => {
+    const openModal = (imageSrc: any) => {
         setSelectedImage(imageSrc);
         setTimeout(() => {
             setIsOpen(true); // Trigger opening animation after image is set
