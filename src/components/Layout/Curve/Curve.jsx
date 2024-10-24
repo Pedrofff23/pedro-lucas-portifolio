@@ -2,7 +2,7 @@
 import React, { use, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { text, curve, translate } from "./anim";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { div } from "framer-motion/client";
 
@@ -17,6 +17,7 @@ const anim = (variants) => {
 
 export default function Curve({ children, backgroundColor }) {
     const router = useRouter();
+    const searchParams = useSearchParams();
     const [dimensions, setDimensions] = useState({
         width: null,
         height: null,
@@ -42,17 +43,17 @@ export default function Curve({ children, backgroundColor }) {
                 style={{ opacity: dimensions.width == null ? 1 : 0 }}
                 className="background"
             />
-            {searchParams.toString() === "" ? (
-                <>
-                    <motion.p className="route" {...anim(text)}>
-                        Pedro Lucas
-      
-                    </motion.p>
-                </>
-            ) : (
-                <></>
-            )}
-
+            <Suspense>
+                {searchParams.toString() === "" ? (
+                    <>
+                        <motion.p className="route" {...anim(text)}>
+                            Pedro Lucas
+                        </motion.p>
+                    </>
+                ) : (
+                    <></>
+                )}
+            </Suspense>
             {dimensions.width != null && <SVG {...dimensions} />}
             {children}
         </div>
